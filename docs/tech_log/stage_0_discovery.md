@@ -1,7 +1,8 @@
 # Stage 0 — Discovery
-**Статус:** IN_PROGRESS
-**Reality Checker:** PENDING
-**PM_STATUS:** PENDING
+**Статус:** DONE ✅
+**Reality Checker:** PASSED
+**PM_STATUS:** APPROVED
+**GO confirmed:** 2026-04-09
 **Дата старту:** 2026-04-08
 
 ## Мета
