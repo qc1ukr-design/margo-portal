@@ -1,7 +1,12 @@
 НАСТУПНА ДІЯ: Stage 1 — отримати доступи від власника (AWS, Supabase, Railway)
 
+STATUS: DONE
+AUTONOMOUS: YES
+ATTEMPTS: 0
+CONTEXT: STANDARD
+
 Активний крок: Stage 1 — Infrastructure & Security
-Статус: NOT STARTED (очікую доступи від власника)
+Статус: NOT STARTED (очікує доступи від власника)
 
 ---
 

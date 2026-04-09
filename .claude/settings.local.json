@@ -153,7 +153,30 @@
       "Bash(npx tsc:*)",
       "Bash(node_modules/.bin/tsc --noEmit)",
       "WebFetch(domain:business.novapay.ua)",
-      "Bash(grep -v \"^$\")"
+      "Bash(grep -v \"^$\")",
+      "Bash(curl -s -o /dev/null -w '%{http_code}' https://qholjpqsrafmuyfnhdqo.supabase.co/rest/v1/ -H 'Authorization: Bearer sb_secret_EZhNFc3DeQ7PWfYi5Nuj7g_BzMhB4S-' -H 'apikey: sb_secret_EZhNFc3DeQ7PWfYi5Nuj7g_BzMhB4S-')",
+      "Bash(curl -s -w '\\\\nHTTP_STATUS:%{http_code}' -X POST https://backboard.railway.app/graphql/v2 -H 'Authorization: Bearer acb61f02-9503-4844-911a-d07e7f52b76e' -H 'Content-Type: application/json' -d '{\"query\":\"{ me { name email } }\"}')",
+      "Bash(curl -s -w '\\\\nHTTP_STATUS:%{http_code}' -X POST https://backboard.railway.app/graphql/v2 -H 'Authorization: Bearer acb61f02-9503-4844-911a-d07e7f52b76e' -H 'Content-Type: application/json' -d '{\"query\":\"{ projects { edges { node { id name } } } }\"}')",
+      "Bash(supabase --version)",
+      "Bash(npm --version)",
+      "Bash(curl -s -o /dev/null -w 'tenants:%{http_code}' 'https://qholjpqsrafmuyfnhdqo.supabase.co/rest/v1/tenants?limit=1' -H 'Authorization: Bearer sb_secret_EZhNFc3DeQ7PWfYi5Nuj7g_BzMhB4S-' -H 'apikey: sb_secret_EZhNFc3DeQ7PWfYi5Nuj7g_BzMhB4S-')",
+      "Bash(curl -s -o /dev/null -w 'client_groups:%{http_code}' 'https://qholjpqsrafmuyfnhdqo.supabase.co/rest/v1/client_groups?limit=1' -H 'Authorization: Bearer sb_secret_EZhNFc3DeQ7PWfYi5Nuj7g_BzMhB4S-' -H 'apikey: sb_secret_EZhNFc3DeQ7PWfYi5Nuj7g_BzMhB4S-')",
+      "Bash(curl -s -o /dev/null -w 'fiscal_receipts:%{http_code}' 'https://qholjpqsrafmuyfnhdqo.supabase.co/rest/v1/fiscal_receipts?limit=1' -H 'Authorization: Bearer sb_secret_EZhNFc3DeQ7PWfYi5Nuj7g_BzMhB4S-' -H 'apikey: sb_secret_EZhNFc3DeQ7PWfYi5Nuj7g_BzMhB4S-')",
+      "Bash(curl -s -o /dev/null -w 'bank_transactions:%{http_code}' 'https://qholjpqsrafmuyfnhdqo.supabase.co/rest/v1/bank_transactions?limit=1' -H 'Authorization: Bearer sb_secret_EZhNFc3DeQ7PWfYi5Nuj7g_BzMhB4S-' -H 'apikey: sb_secret_EZhNFc3DeQ7PWfYi5Nuj7g_BzMhB4S-')",
+      "Bash(curl -s -w '\\\\nHTTP_STATUS:%{http_code}' https://api.supabase.com/v1/projects/qholjpqsrafmuyfnhdqo -H 'Authorization: Bearer sb_secret_EZhNFc3DeQ7PWfYi5Nuj7g_BzMhB4S-')",
+      "Bash(mkdir -p /tmp/kms-test)",
+      "Bash(curl -s -w '\\\\nHTTP_STATUS:%{http_code}' https://qholjpqsrafmuyfnhdqo.supabase.co/rest/v1/ -H 'Authorization: Bearer sb_secret_EZhNFc3DeQ7PWfYi5Nuj7g_BzMhB4S-' -H 'apikey: sb_secret_EZhNFc3DeQ7PWfYi5Nuj7g_BzMhB4S-')",
+      "Bash(psql --version)",
+      "Bash(curl -s -w '\\\\nHTTP_STATUS:%{http_code}' https://api.supabase.com/v1/projects -H 'Authorization: Bearer sb_secret_EZhNFc3DeQ7PWfYi5Nuj7g_BzMhB4S-')",
+      "Bash(ls /C/Users/user/Desktop/margo-portal/.env*)",
+      "Bash(curl -s -w '\\\\nHTTP_STATUS:%{http_code}' -X POST https://backboard.railway.app/graphql/v2 -H 'Authorization: Bearer acb61f02-9503-4844-911a-d07e7f52b76e' -H 'Content-Type: application/json' -d '{\"query\":\"{ teams { edges { node { id name } } } }\"}')",
+      "Bash(curl -s -w '\\\\nHTTP_STATUS:%{http_code}' -X POST https://backboard.railway.app/graphql/v2 -H 'Authorization: Bearer acb61f02-9503-4844-911a-d07e7f52b76e' -H 'Content-Type: application/json' -d '{\"query\":\"{ team { id name } }\"}')",
+      "Bash(curl -s -w '\\\\nHTTP_STATUS:%{http_code}' -X POST https://backboard.railway.app/graphql/v2 -H 'Authorization: Bearer acb61f02-9503-4844-911a-d07e7f52b76e' -H 'Content-Type: application/json' -d '{\"query\":\"{ __schema { queryType { fields { name } } } }\"}')",
+      "Bash(curl -s -w '\\\\nHTTP_STATUS:%{http_code}' -X POST https://backboard.railway.app/graphql/v2 -H 'Authorization: Bearer acb61f02-9503-4844-911a-d07e7f52b76e' -H 'Content-Type: application/json' -d '{\"query\":\"{ environments { id name } }\"}')",
+      "Bash(curl -s -w '\\\\nHTTP_STATUS:%{http_code}' -X POST https://backboard.railway.app/graphql/v2 -H 'Authorization: Bearer acb61f02-9503-4844-911a-d07e7f52b76e' -H 'Content-Type: application/json' -d '{\"query\":\"{ resourceAccess { project { create } } }\"}')",
+      "Bash(curl -s -w '\\\\nHTTP_STATUS:%{http_code}' -X POST https://backboard.railway.app/graphql/v2 -H 'Authorization: Bearer acb61f02-9503-4844-911a-d07e7f52b76e' -H 'Content-Type: application/json' -d '{\"query\":\"{ publicStats { totalProjects totalUsers } }\"}')",
+      "Bash(node -e \"require\\('pg'\\)\")",
+      "Bash(npx supabase:*)"
     ]
   }
 }
