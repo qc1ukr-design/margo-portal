@@ -1,0 +1,50 @@
+{
+  "source": "nova_poshta",
+  "client": "Сухарєв",
+  "period": "2026-01-01/2026-03-31",
+  "success": true,
+  "total_q1": 140,
+  "cash": 127,
+  "non_cash": 13,
+  "with_afterpayment": 86,
+  "delivered": 139,
+  "note": "date_format=dd.mm.yyyy; field=IntDocNumber (not Number); max range=3months; chunk pagination needed",
+  "sample": [
+    {
+      "IntDocNumber": "20451404653570",
+      "DateTime": "2026-03-31 15:11:27",
+      "RecipientDateTime": "03.04.2026 18:44:37",
+      "AfterpaymentOnGoodsCost": "0.00",
+      "BackwardDeliverySum": "",
+      "BackwardDeliveryMoney": 0,
+      "PaymentMethod": "Cash",
+      "StateName": "Відправлення отримано",
+      "Cost": "2547.00",
+      "SenderEDRPOU": "2291700717"
+    },
+    {
+      "IntDocNumber": "20451404605596",
+      "DateTime": "2026-03-31 14:41:21",
+      "RecipientDateTime": "02.04.2026 14:52:06",
+      "AfterpaymentOnGoodsCost": "0.00",
+      "BackwardDeliverySum": "",
+      "BackwardDeliveryMoney": 0,
+      "PaymentMethod": "NonCash",
+      "StateName": "Відправлення отримано",
+      "Cost": "100.00",
+      "SenderEDRPOU": "2291700717"
+    },
+    {
+      "IntDocNumber": "20451404497142",
+      "DateTime": "2026-03-31 13:31:03",
+      "RecipientDateTime": "01.04.2026 17:18:35",
+      "AfterpaymentOnGoodsCost": "0.00",
+      "BackwardDeliverySum": "",
+      "BackwardDeliveryMoney": 0,
+      "PaymentMethod": "NonCash",
+      "StateName": "Відправлення отримано",
+      "Cost": "225.00",
+      "SenderEDRPOU": "2291700717"
+    }
+  ]
+}

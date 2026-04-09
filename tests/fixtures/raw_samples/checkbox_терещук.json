@@ -1,0 +1,47 @@
+{
+  "source": "checkbox",
+  "client": "Терещук",
+  "period": "2026-03",
+  "count": 1,
+  "note": "total_sum in KOPECKS (not UAH). Auth: Authorization Bearer. Endpoint: signin (lowercase)",
+  "payment_types": {
+    "CASHLESS": 1
+  },
+  "total_uah": 185,
+  "sample": [
+    {
+      "id": "63782527-89a2-4b07-a561-f7f3da65e33a",
+      "serial": 26895,
+      "status": "DONE",
+      "created_at": "2026-04-09T07:20:44.757033+00:00",
+      "fiscal_code": "7f_S7LqXmPQ",
+      "total_sum": 18500,
+      "payments": [
+        {
+          "type": "CASHLESS",
+          "pawnshop_is_return": null,
+          "operation_type": null,
+          "provider_type": null,
+          "code": 1,
+          "value": 18500,
+          "commission": null,
+          "label": "Платіж через інтегратора NovaPay",
+          "card_mask": null,
+          "bank_name": null,
+          "auth_code": null,
+          "rrn": null,
+          "payment_system": null,
+          "owner_name": null,
+          "terminal": null,
+          "acquiring": null,
+          "acquirer_and_seller": null,
+          "receipt_no": null,
+          "signature_required": null,
+          "tapxphone_terminal": null,
+          "transaction_id": null,
+          "ereceipt_data": null
+        }
+      ]
+    }
+  ]
+}

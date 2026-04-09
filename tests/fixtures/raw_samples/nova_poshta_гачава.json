@@ -1,0 +1,44 @@
+{
+  "source": "nova_poshta",
+  "client": "Гачава",
+  "period": "2026-01-01/2026-04-09",
+  "success": true,
+  "total": 450,
+  "cash": 450,
+  "non_cash": 0,
+  "with_afterpayment": 357,
+  "delivered": 429,
+  "note": "field=IntDocNumber, date=DD.MM.YYYY, max 3mo/request",
+  "sample": [
+    {
+      "IntDocNumber": "20451379419666",
+      "DateTime": "2026-02-28 20:55:03",
+      "RecipientDateTime": "07.03.2026 15:35:13",
+      "AfterpaymentOnGoodsCost": "145.00",
+      "PaymentMethod": "Cash",
+      "StateName": "Відправлення отримано",
+      "SenderEDRPOU": "3184920753",
+      "Cost": "145.00"
+    },
+    {
+      "IntDocNumber": "20451379414195",
+      "DateTime": "2026-02-28 20:27:49",
+      "RecipientDateTime": "03.03.2026 16:34:14",
+      "AfterpaymentOnGoodsCost": "0.00",
+      "PaymentMethod": "Cash",
+      "StateName": "Відправлення отримано",
+      "SenderEDRPOU": "3184920753",
+      "Cost": "145.00"
+    },
+    {
+      "IntDocNumber": "20451379412739",
+      "DateTime": "2026-02-28 20:20:41",
+      "RecipientDateTime": "03.03.2026 16:45:50",
+      "AfterpaymentOnGoodsCost": "0.00",
+      "PaymentMethod": "Cash",
+      "StateName": "Відправлення отримано",
+      "SenderEDRPOU": "3184920753",
+      "Cost": "145.00"
+    }
+  ]
+}

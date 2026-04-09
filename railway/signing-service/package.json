@@ -1,0 +1,17 @@
+{
+  "name": "signing-service",
+  "version": "0.1.0",
+  "description": "КЕП/DSTU signing microservice for ДПС cabinet auth",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "gost89": "^1.0.6",
+    "jkurwa": "^1.21.2"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

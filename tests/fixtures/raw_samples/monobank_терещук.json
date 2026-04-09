@@ -1,0 +1,56 @@
+{
+  "source": "monobank",
+  "client": "Терещук",
+  "period": "2026-03-01/2026-04-07",
+  "count": 2,
+  "schema": [
+    "id",
+    "time",
+    "description",
+    "mcc",
+    "originalMcc",
+    "amount",
+    "operationAmount",
+    "currencyCode",
+    "commissionRate",
+    "cashbackAmount",
+    "balance",
+    "hold",
+    "_account_type",
+    "_currency_code"
+  ],
+  "sample": [
+    {
+      "id": "m6kJCoQSZFhXG01B7g",
+      "time": 1775033026,
+      "description": "Переказ на картку",
+      "mcc": 4829,
+      "originalMcc": 4829,
+      "amount": -2574877,
+      "operationAmount": -58460,
+      "currencyCode": 840,
+      "commissionRate": 0,
+      "cashbackAmount": 0,
+      "balance": 320388,
+      "hold": false,
+      "_account_type": "white",
+      "_currency_code": 980
+    },
+    {
+      "id": "e9e7evZqpvnmNfdUhw",
+      "time": 1775030488,
+      "description": "За реквізитами",
+      "mcc": 4829,
+      "originalMcc": 4829,
+      "amount": 2600000,
+      "operationAmount": 2600000,
+      "currencyCode": 980,
+      "commissionRate": 0,
+      "cashbackAmount": 0,
+      "balance": 2895265,
+      "hold": false,
+      "_account_type": "white",
+      "_currency_code": 980
+    }
+  ]
+}
