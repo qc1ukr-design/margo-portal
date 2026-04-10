@@ -10,14 +10,17 @@ PM_STATUS Stage 0: має бути APPROVED перед стартом.
 Розгорнути повну інфраструктуру: Supabase з RLS, AWS KMS для шифрування токенів, Railway для фонових сервісів, CI/CD pipeline.
 
 ## Чеклист
-- [ ] Supabase проєкт створено
-- [ ] Базова схема БД задеплоєна (міграція 001)
-- [ ] RLS включено на всіх таблицях
+- [x] Supabase проєкт створено
+- [x] Базова схема БД задеплоєна — 10 таблиць підтверджено (2026-04-10)
+- [x] RLS включено на всіх таблицях (в міграції)
 - [ ] Tenant isolation перевірено тестами
 - [x] AWS KMS key створено (us-east-1) — ARN: arn:aws:kms:us-east-1:826496717510:key/d3c16e56-9057-4398-abc7-fa0c046419a0
-- [ ] KMS-service задеплоєно на Railway
+- [x] AWS IAM policies додано (AWSKeyManagementServicePowerUser + margo-kms-policy) — підтверджено 2026-04-10
+- [x] Railway проєкт margo-portal створено (id: 3cfeefba-1b1b-42c1-8997-0bbe81e91b01)
+- [x] Railway сервіси створено: kms-service, reconciliation-worker, signing-service
+- [ ] KMS-service код задеплоєно на Railway (потрібно підключити GitHub repo)
 - [ ] Envelope Encryption реалізовано і протестовано
-- [ ] Railway reconciliation-worker задеплоєно (заглушка)
+- [ ] Railway reconciliation-worker задеплоєно (заглушка з кодом)
 - [ ] CI/CD pipeline налаштовано (GitHub Actions або Railway deploy hooks)
 - [ ] Секрети не потрапляють у логи (перевірено)
 - [ ] Мінімальний smoke-test пройдено
