@@ -212,5 +212,5 @@ app.get('/health', (_req, res) => {
 
 app.listen(PORT, () => {
   console.log(`[kms-service] Listening on port ${PORT}`)
-  console.log(`[kms-service] KMS key: ${KMS_KEY_ID.slice(0, 30)}...`)
+  console.log(`[kms-service] KMS key configured: ${KMS_KEY_ID.includes('alias/') ? KMS_KEY_ID : '[ARN set]'}`)
 })

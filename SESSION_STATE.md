@@ -1,4 +1,4 @@
-НАСТУПНА ДІЯ: Власник виконує 5 AUTH_REQUIRED дій (Railway підключення + Supabase міграція 005 + IAM permissions + RLS тести), потім — Reality Checker та PM Review Stage 1
+﻿НАСТУПНА ДІЯ: Власник виконує 5 AUTH_REQUIRED дій (Railway підключення + Supabase міграція 005 + IAM permissions + RLS тести), потім — Reality Checker та PM Review Stage 1
 
 STATUS: WAITING_OWNER
 AUTONOMOUS: NO (потрібна авторизація власника)
@@ -9,7 +9,7 @@ CONTEXT: STANDARD
 
 ---
 
-## Що зроблено (2026-04-10, сесія 2)
+## Що зроблено (2026-04-10, сесія 3 — додатково)
 ✅ railway/kms-service/ — envelope encryption AWS KMS + AES-256-GCM
    - POST /encrypt → { encrypted_token, kms_data_key_encrypted, kms_key_id }
    - POST /decrypt → { plaintext }
@@ -25,6 +25,22 @@ CONTEXT: STANDARD
    - Helper functions: margo_tenant_id(), margo_client_group_id()
    - Accountant: весь тенант / Client: тільки свій client_group
 ✅ tests/stage-1-rls-isolation.sql — 6 негативних ізоляційних тестів (SQL)
+
+## Що зроблено (2026-04-10, сесія 3 — автономно)
+✅ signing-service оновлено: Stage 1 інтеграція Supabase Storage + kms-service
+   - fetchEncryptedKeyFile: завантажує JSON { encrypted, kms_data_key_encrypted } зі storage bucket 'kep-keys'
+   - decryptKeyFile: викликає kms-service/decrypt → повертає binary buffer
+   - key_ref тепер = шлях у Supabase Storage (не локальний файл)
+✅ tests/kms-crypto-smoke.cjs — 6 локальних тестів AES-256-GCM (без Railway): всі PASS
+✅ .github/workflows/ci.yml — GitHub Actions CI:
+   - TypeScript check (коли з'явиться package.json)
+   - KMS crypto smoke test (6/6 PASS)
+   - Secret scan (AKIA*, sk_live_*)
+   - Migration files lint
+   - Railway services syntax check
+✅ tests/stage-1-checklist.md — формальний чеклист Reality Checker
+✅ kms.ts: виправлено TypeScript (undefined guard для KMS_SERVICE_URL)
+✅ kms-service: видалено ARN з логів (account ID не логується)
 
 ---
 

@@ -13,10 +13,12 @@
 //   // use token in-memory only — never log or persist
 // ============================================================
 
-const KMS_SERVICE_URL = process.env.KMS_SERVICE_URL
-
-if (!KMS_SERVICE_URL && process.env.NODE_ENV === 'production') {
-  throw new Error('KMS_SERVICE_URL env var is required in production')
+function getKmsUrl(): string {
+  const url = process.env.KMS_SERVICE_URL
+  if (!url) {
+    throw new Error('KMS_SERVICE_URL env var is not set')
+  }
+  return url
 }
 
 export interface SealedCredential {
@@ -31,7 +33,7 @@ export interface SealedCredential {
  * NEVER log plaintext — pass it directly to this function.
  */
 export async function kmsEncrypt(plaintext: string): Promise<SealedCredential> {
-  const url = `${KMS_SERVICE_URL}/encrypt`
+  const url = `${getKmsUrl()}/encrypt`
 
   const res = await fetch(url, {
     method: 'POST',
@@ -58,7 +60,7 @@ export async function kmsEncrypt(plaintext: string): Promise<SealedCredential> {
  * Returns the plaintext token — use in memory only, never log or persist.
  */
 export async function kmsDecrypt(sealed: Pick<SealedCredential, 'encrypted_token' | 'kms_data_key_encrypted'>): Promise<string> {
-  const url = `${KMS_SERVICE_URL}/decrypt`
+  const url = `${getKmsUrl()}/decrypt`
 
   const res = await fetch(url, {
     method: 'POST',
