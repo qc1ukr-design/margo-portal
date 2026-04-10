@@ -207,7 +207,11 @@
       "Bash(node /c/Users/user/Desktop/margo-portal/tests/kms-crypto-smoke.cjs)",
       "Bash(node --check /c/Users/user/Desktop/margo-portal/railway/kms-service/index.js)",
       "Bash(node --check /c/Users/user/Desktop/margo-portal/railway/reconciliation-worker/index.js)",
-      "Bash(node --check /c/Users/user/Desktop/margo-portal/railway/signing-service/index.js)"
+      "Bash(node --check /c/Users/user/Desktop/margo-portal/railway/signing-service/index.js)",
+      "Bash(mv .github /tmp/margo-github-backup)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(mv /tmp/margo-github-backup .github)"
     ]
   }
 }
