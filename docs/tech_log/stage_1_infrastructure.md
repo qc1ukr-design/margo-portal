@@ -29,7 +29,12 @@ PM_STATUS Stage 0: має бути APPROVED перед стартом.
 - [ ] Security Checklist (з CLAUDE.md): API tokens зашифровані, жодних секретів в логах, KMS decrypt тільки в пам'яті
 
 ## Результат
-<!-- Заповнюється після завершення -->
+✅ kms-service написано: Express + @aws-sdk/client-kms + AES-256-GCM envelope encryption. POST /encrypt, POST /decrypt, GET /health. Plaintext data key зітирається з пам'яті після кожної операції.
+✅ reconciliation-worker stub написано: health endpoint, poll loop (30 сек), timeout test на старті (підтверджує < 5 хв).
+✅ src/lib/kms.ts — Next.js клієнт до kms-service (kmsEncrypt / kmsDecrypt).
+✅ railway.toml додано до всіх 3 сервісів (nixpacks builder, healthcheck path).
+✅ supabase/migrations/005_rls_policies.sql — повноцінні RLS policies: tenant_isolation + client_group_isolation для всіх 8 таблиць.
+✅ tests/stage-1-rls-isolation.sql — 6 негативних ізоляційних тестів (SQL, запускати в Supabase SQL Editor).
 
 ## Несподіванки
 ⚠️ UNEXPECTED: AWS KMS key створено в us-east-1 замість eu-central-1 (відповідно до наданих credentials AWS_REGION=us-east-1). Якщо потрібно eu-central-1 — треба окремий ключ.
@@ -38,7 +43,11 @@ PM_STATUS Stage 0: має бути APPROVED перед стартом.
 ⚠️ UNEXPECTED: Supabase Management API (api.supabase.com) вимагає окремий Supabase Personal Access Token — service_role key для цього не підходить. DDL міграції не можна запустити через REST API автоматично.
 
 ## Потрібна авторизація
-🔑 AUTH_REQUIRED: Запустити міграції БД вручну — відкрити https://supabase.com/dashboard/project/qholjpqsrafmuyfnhdqo/sql/new і виконати файл supabase/migrations/RUN_IN_SUPABASE_SQL_EDITOR.sql
+🔑 AUTH_REQUIRED: Запустити міграції БД вручну — відкрити Supabase SQL Editor і виконати послідовно:
+  1. supabase/migrations/RUN_IN_SUPABASE_SQL_EDITOR.sql (вже виконано — 10 таблиць підтверджено)
+  2. supabase/migrations/004_add_marketplace_match_strategy.sql (якщо ще не виконано)
+  3. supabase/migrations/005_rls_policies.sql — НОВИЙ: RLS policies (обов'язково виконати!)
 🔑 AUTH_REQUIRED: Додати IAM policy до user margo-portal-kms (AWS Console → IAM → Users → margo-portal-kms → Add permissions): kms:GenerateDataKey, kms:Decrypt, kms:DescribeKey на ARN arn:aws:kms:us-east-1:826496717510:key/d3c16e56-9057-4398-abc7-fa0c046419a0
-🔑 AUTH_REQUIRED: Підтвердити чи Region правильний (us-east-1 vs eu-central-1 з CLAUDE.md). Якщо потрібен eu-central-1 — видалити ключ і створити заново з правильним region.
-🔑 AUTH_REQUIRED: Railway token — для деплою signing-service та reconciliation-worker потрібен personal access token (Settings → Tokens у Railway dashboard) або railway CLI (`railway login`).
+🔑 AUTH_REQUIRED: Підтвердити чи Region правильний (us-east-1 vs eu-central-1 з CLAUDE.md). Якщо потрібен eu-central-1 — видалити ключ і створити заново.
+🔑 AUTH_REQUIRED: Railway → підключити GitHub repo. В Railway dashboard: кожен сервіс → Settings → Source → Connect GitHub → вибрати margo-portal repo → Root Directory = railway/kms-service (або відповідна папка). Додати env vars (AWS_REGION, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, KMS_KEY_ID для kms-service; SUPABASE_URL, SUPABASE_SERVICE_KEY для reconciliation-worker).
+🔑 AUTH_REQUIRED: Запустити tests/stage-1-rls-isolation.sql в Supabase SQL Editor — перевірити що всі 6 тестів [PASS].

@@ -1,0 +1,16 @@
+{
+  "name": "reconciliation-worker",
+  "version": "0.1.0",
+  "description": "Background reconciliation worker for Margo Portal — polls for pending runs and processes them",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.3",
+    "express": "^4.18.2"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
